@@ -24,6 +24,13 @@ class Gestion_Taches:
             print("-> ", tache)
 
 
+    def csv_taches(self, nom_fichier):
+        with open(nom_fichier, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            for tache in self.Table_taches:
+                writer.writerow([tache])
+
+
 def main():
     to_do_list = Gestion_Taches()
 
