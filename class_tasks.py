@@ -21,7 +21,7 @@ class GESTION_TACHES :
         tache = input(" -> ENTREZ LA TACHE A SUPPRIMER : ")
         if tache in self.Table_Taches :
             self.Table_Taches.remove(tache)
-            self.Sauvgarder_donnees_csv
+            self.Sauvgarder_donnees_csv()
             print(" La tache supprimer avec succes .")
         else:
             print(" la tache non trouve !! ")  
@@ -44,7 +44,8 @@ class GESTION_TACHES :
     def Modifier_tache(self , Ancien_Tache , nv_tache):
         if Ancien_Tache in self.Table_Taches:
             id = self.Table_Taches.index(Ancien_Tache)
-            self.Table_Taches[id] = nv_tache   
+            self.Table_Taches[id] = nv_tache 
+            self.Sauvgarder_donnees_csv()
 
             print(" La tache a modifiee succes . ")   
 
