@@ -29,9 +29,7 @@ if __name__ == "__main__" :
                 to_do_list.Afficher_Tache()
 
             elif choix == "4":
-                Ancien_Tache = input(" Entrez l'ancien tache : ")
-                nv_tache = input(" Entrez la nouvelle tache  : ")
-                to_do_list.Modifier_tache(Ancien_Tache, nv_tache)
+                to_do_list.Modifier_tache()
 
             elif choix == "5":
                 break
