@@ -42,18 +42,18 @@ class GESTION_TACHES :
             print(" Aucun tache dans la liste !! ")
 
             
-            
-
-    def Modifier_tache(self , Ancien_Tache , nv_tache):
-        if Ancien_Tache in self.Table_Taches:
-            id = self.Table_Taches.index(Ancien_Tache)
-            self.Table_Taches[id] = nv_tache 
+    def Modifier_tache(self):
+        self.Afficher_Tache()
+        id = int(input(" Entrez l'index de l'ancien tache : "))
+        nv_tache = input(" Entrez la nouvelle tache  : ")
+        if 0 <= id  and id < len(self.Table_Taches):
+            self.Table_Taches[id] = nv_tache   
             self.Sauvgarder_donnees_csv()
-
             print(" La tache a modifiee succes . ")   
-
         else :
             print(" La tache non trouve !! ")  
+
+ 
 
 
 
