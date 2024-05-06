@@ -7,6 +7,7 @@ class GESTION_TACHES :
 
 
     def Ajouter_tache(self):
+        self.Afficher_Tache()
         tache = input(" -> SAISIR VOTRE TACHE : ")
         if tache :
             self.Table_Taches.append(tache)
