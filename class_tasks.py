@@ -16,15 +16,17 @@ class GESTION_TACHES :
             print("Veuillez entrer une tache !! ") 
 
 
-
     def Supprimer_Tache(self):
-        tache = input(" -> ENTREZ LA TACHE A SUPPRIMER : ")
-        if tache in self.Table_Taches :
-            self.Table_Taches.remove(tache)
+        self.Afficher_Tache()
+        tache = int(input(" -> ENTREZ L'INDEX DU TACHE A SUPPRIMER : "))
+        if 0 <= tache and tache < len(self.Table_Taches) :
+            del self.Table_Taches[tache]
             self.Sauvgarder_donnees_csv()
+            
             print(" La tache supprimer avec succes .")
         else:
-            print(" la tache non trouve !! ")  
+            print(" la tache non trouve !! ")
+  
 
 
 
