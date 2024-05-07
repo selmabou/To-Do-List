@@ -1,6 +1,6 @@
 import csv 
 
-class tasks_manager :
+class Tasks_Manager :
     def __init__(self):
         self.all_tasks = []
         self.load_data_csv()
