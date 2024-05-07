@@ -1,4 +1,4 @@
-from class_tasks import GESTION_TACHES
+from class_tasks import tasks_manager
 
 if __name__ == "__main__" :
 
@@ -6,9 +6,9 @@ if __name__ == "__main__" :
     password = input(" Entrez votre mot de pass   : ")     
 
     if user == 'root'  and password == '123':
-        to_do_list = GESTION_TACHES()
+        to_do_list = tasks_manager()
 
-        while True :    
+        while True :
             print("\n >>>   APP GESTION DES TACHES   <<< ") 
             print(" 1. AJOUTER UNE TACHE ")
             print(" 2. SUPPRIMER UNE TACHE ")
@@ -17,21 +17,21 @@ if __name__ == "__main__" :
             print(" 5. QUITTER ")
 
 
-            choix = input(" \n => CHOISISSEZ UNE OPTION : ")
+            choice = input(" \n => CHOISISSEZ UNE OPTION : ")
 
-            if choix == "1":
-                to_do_list.Ajouter_tache()
+            if choice == "1":
+                to_do_list.add_task()
 
-            elif choix == "2":
-                to_do_list.Supprimer_Tache()
+            elif choice == "2":
+                to_do_list.delete_task()
 
-            elif choix == "3":
-                to_do_list.Afficher_Tache()
+            elif choice == "3":
+                to_do_list.show_task()
 
-            elif choix == "4":
-                to_do_list.Modifier_tache()
+            elif choice == "4":
+                to_do_list.update_task()
 
-            elif choix == "5":
+            elif choice == "5":
                 break
 
             else:
