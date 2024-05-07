@@ -1,77 +1,81 @@
 import csv 
 
-class GESTION_TACHES :
+class tasks_manager :
     def __init__(self):
-        self.Table_Taches = []
-        self.charger_donnees_csv()
+        self.all_tasks = []
+        self.load_data_csv()
 
 
-    def Ajouter_tache(self):
-        self.Afficher_Tache()
-        tache = input(" -> SAISIR VOTRE TACHE : ")
-        if tache :
-            self.Table_Taches.append(tache)
-            self.Sauvgarder_donnees_csv()
+    def add_task(self):
+        self.show_task()
+        task = input(" -> SAISIR VOTRE tache : ")
+        if task :
+            self.all_tasks.append(task)
+            self.save_data_csv()
             print(" La tache ajoute avec succes .")
         else :
-            print("Veuillez entrer une tache !! ") 
+            print("Veuillez entrer une tache!! ") 
 
 
-    def Supprimer_Tache(self):
-        self.Afficher_Tache()
-        tache = int(input(" -> ENTREZ L'INDEX DU TACHE A SUPPRIMER : "))
-        if 0 <= tache and tache < len(self.Table_Taches) :
-            del self.Table_Taches[tache]
-            self.Sauvgarder_donnees_csv()
+
+    def delete_task(self):
+        self.show_task()
+        task = int(input(" -> ENTREZ L'INDEX DU tache A SUPPRIMER : "))
+        if 0 <= task and task < len(self.all_tasks) :
+            del self.all_tasks[task]
+            self.save_data_csv()
             
             print(" La tache supprimer avec succes .")
         else:
-            print(" la tache non trouve !! ")
-  
+            print(" la tache non trouve !! ")  
 
 
 
-    def Afficher_Tache(self):
-        if self.Table_Taches :
-            print(" Liste des taches : ")
+    def show_task(self):
+        if self.all_tasks :
+            print(" Liste des tache : ")
             
-            for mon_tache in self.Table_Taches :
-                print(mon_tache)
+            for index, mon_task in enumerate(self.all_tasks) :
+                print(index,".", mon_task)
 
         else:
             print(" Aucun tache dans la liste !! ")
 
             
-    def Modifier_tache(self):
-        self.Afficher_Tache()
+            
+
+    def update_task(self):
+        self.show_task()
         id = int(input(" Entrez l'index de l'ancien tache : "))
-        nv_tache = input(" Entrez la nouvelle tache  : ")
-        if 0 <= id  and id < len(self.Table_Taches):
-            self.Table_Taches[id] = nv_tache   
-            self.Sauvgarder_donnees_csv()
+        nv_task = input(" Entrez la nouvelle tache  : ")
+        if 0 <= id  and id < len(self.all_tasks):
+            #id = self.all_tasks.index(Ancien_task)
+            self.all_tasks[id] = nv_task   
+            self.save_data_csv()
+            
+
             print(" La tache a modifiee succes . ")   
+
         else :
             print(" La tache non trouve !! ")  
 
- 
 
 
-
-    def Sauvgarder_donnees_csv(self):
+    def save_data_csv(self):
         with open('file_tasks.csv', 'w') as file:
             writer = csv.writer(file)
-            for tache in self.Table_Taches :
-                writer.writerow([tache])
+            for task in self.all_tasks :
+                writer.writerow([task])
 
 
 
-    def charger_donnees_csv(self): 
+    def load_data_csv(self): 
         try:
             with open('file_tasks.csv', 'r') as file:
                 reader = csv.reader(file)
                 for row in reader:
                     if row :
-                        self.Table_Taches.append(row[0])
+                        self.all_tasks.append(row[0])
         except FileNotFoundError:
             pass
 
