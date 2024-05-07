@@ -1,4 +1,4 @@
-from class_tasks import tasks_manager
+from class_tasks import Tasks_Manager
 
 if __name__ == "__main__" :
 
